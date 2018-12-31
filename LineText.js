@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
     itemText:{
         flex: 1,
         alignItems: 'center',
-        margin: 20
+        margin: 5
     },
 });

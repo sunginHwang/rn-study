@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, View, Image, ScrollView} from 'react-native';
 import LineText from './LineText';
-
-
+import HalfView from './HalfView';
+import InputHandle from './InputHandle';
 
 export default class App extends Component {
     render() {
@@ -11,10 +11,14 @@ export default class App extends Component {
         };
         return (
             <View style={styles.container}>
-                <LineText name='Open up 성인 App.js to start working on your app!' />
-                <LineText name='Open up HyeJin App.js to start working on your app!' />
-                <LineText name='Open up 상민 sApp.js to start working on your app!' />
-                <Image source={pic} style={{width: 500, height: 110}}/>
+                <Image source={pic} style={{width: 500, height: 400}}/>
+                <InputHandle/>
+                <ScrollView contentContainerStyle={styles.scrollContainer}>
+                    <LineText name='Open up 성인 App.js to start working on your app!'/>
+                    <LineText name='Open up HyeJin App.js to start working on your app!'/>
+                    <LineText name='Open up 상민 sApp.js to start working on your app!'/>
+                    <HalfView msg='HalfViewTest'/>
+                </ScrollView>
             </View>
         );
     }
@@ -26,6 +30,12 @@ const styles = StyleSheet.create({
         borderColor: '#eee',
         backgroundColor: '#fff',
         alignItems: 'center',
+        justifyContent: 'center',
+    },
+    scrollContainer: {
+        marginTop:60,
+        alignItems: 'center',
+        backgroundColor: '#666',
         justifyContent: 'center',
     }
 });
