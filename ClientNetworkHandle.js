@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Dimensions, ActivityIndicator} from 'react-native';
+import {StyleSheet, View, Text, Dimensions, ActivityIndicator, TouchableOpacity} from 'react-native';
 const {width} = Dimensions.get('window');
 
 import axios from 'axios';
+import HalfView from "./HalfView";
 
 class ClientNetworkHandle extends Component {
     constructor(props) {
@@ -32,19 +33,21 @@ class ClientNetworkHandle extends Component {
 
         return (
             <View style={styles.asyncContainer}>
-                <Text>{this.state.text}</Text>
+                <TouchableOpacity onPress={() => console.log('onPress')}
+                                  onPressOut={() => console.log('onPressOut')}>
+                    <HalfView msg={this.state.text}/>
+                </TouchableOpacity>
             </View>
+
         );
     }
 }
 
 export default ClientNetworkHandle;
 
-
 const styles = StyleSheet.create({
     asyncContainer: {
         flex: 1,
        width:width-20,
-
     },
 });

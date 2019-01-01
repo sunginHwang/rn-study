@@ -15,8 +15,8 @@ export default class App extends Component {
         return (
             <View style={styles.container}>
                 <Image source={pic} style={{width: 500, height: 400}}/>
-                <InputHandle/>
                 <ClientNetworkHandle/>
+                <InputHandle/>
                 <AnimationComponent style={{width:width , height:3}}>
                     <HalfView msg='FadeInHalfViewTest'/>
                 </AnimationComponent>

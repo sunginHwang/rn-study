@@ -1,6 +1,8 @@
 import {StyleSheet, TextInput, Text, View, Dimensions} from 'react-native';
 import React, {Component} from 'react';
+import HalfView from './HalfView';
 const {width} = Dimensions.get('window');
+
 export default class InputHandle extends Component {
 
     constructor(props){
