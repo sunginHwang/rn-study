@@ -3,6 +3,7 @@ import {StyleSheet, View, Image, ScrollView} from 'react-native';
 import LineText from './LineText';
 import HalfView from './HalfView';
 import InputHandle from './InputHandle';
+import ClientNetworkHandle from './ClientNetworkHandle';
 
 export default class App extends Component {
     render() {
@@ -12,8 +13,10 @@ export default class App extends Component {
         return (
             <View style={styles.container}>
                 <Image source={pic} style={{width: 500, height: 400}}/>
+                <ClientNetworkHandle/>
                 <InputHandle/>
-                <ScrollView contentContainerStyle={styles.scrollContainer}>
+                <ScrollView
+                    contentContainerStyle={styles.scrollContainer}>
                     <LineText name='Open up 성인 App.js to start working on your app!'/>
                     <LineText name='Open up HyeJin App.js to start working on your app!'/>
                     <LineText name='Open up 상민 sApp.js to start working on your app!'/>
