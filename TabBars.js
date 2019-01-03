@@ -1,10 +1,6 @@
 import React from 'react';
-import {Dimensions, Text, View} from 'react-native';
+import { Text, View } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
-import First from './First';
-import Seconds from './Seconds';
-import Third from './Third';
-
 
 class HomeScreen extends React.Component {
     render() {
@@ -27,9 +23,8 @@ class SettingsScreen extends React.Component {
 }
 
 const TabNavigator = createBottomTabNavigator({
-    First: { screen: First },
-    Seconds: { screen: Seconds },
-    Third: { screen: Third },
+    Home: HomeScreen,
+    Settings: SettingsScreen,
 });
 
 export default createAppContainer(TabNavigator);
