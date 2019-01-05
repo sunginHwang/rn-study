@@ -1,4 +1,4 @@
-import {Image} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 import React, {Component} from 'react';
 
 let pic = {
@@ -14,3 +14,12 @@ export default class First extends Component {
         )
     }
 }
+
+
+const styles = StyleSheet.create({
+    itemText:{
+        flex: 1,
+        alignItems: 'center',
+        margin: 5
+    },
+});

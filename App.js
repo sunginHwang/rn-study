@@ -4,6 +4,7 @@ import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import First from './First';
 import Seconds from './Seconds';
 import Third from './Third';
+import Layout from './component/Layout';
 
 
 class HomeScreen extends React.Component {
@@ -27,9 +28,9 @@ class SettingsScreen extends React.Component {
 }
 
 const TabNavigator = createBottomTabNavigator({
-    First: { screen: First },
-    Seconds: { screen: Seconds },
-    Third: { screen: Third },
+    첫번째: { screen: Layout },
+    두번째: { screen: Seconds },
+    세번째: { screen: Third },
 });
 
 export default createAppContainer(TabNavigator);
