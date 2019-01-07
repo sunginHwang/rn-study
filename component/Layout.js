@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image, Dimensions, ScrollView} from 'react-native';
+import {StyleSheet, View, Text, Image, Dimensions, ScrollView, FlatList} from 'react-native';
 import {SafeAreaView} from 'react-navigation';
 
 
@@ -9,9 +9,17 @@ const {width} = Dimensions.get('window');
 
 
 const imgUrls = [{
-    uri: 'https://yaimg.yanolja.com/joy/sunny/static/images/promotion/bnr-leisure-open-op.png'
+   url:{
+       uri: 'https://yaimg.yanolja.com/joy/sunny/static/images/promotion/bnr-leisure-open-op.png'
+   },
+    id:1,
+    uuid:'test'
 }, {
-    uri: 'https://yaimg.yanolja.com/joy/sunny/static/images/promotion/bnr_leisure_winter.png'
+    url:{
+        uri: 'https://yaimg.yanolja.com/joy/sunny/static/images/promotion/bnr_leisure_winter.png'
+    },
+    id:2,
+    uuid:'test2'
 }];
 
 const hotDealImgUrls = [
@@ -59,16 +67,23 @@ export default class Layout extends Component {
                     <Text style={styles.Title}>레저 / 티켓</Text>
                 </View>
                 <View style={styles.Image}>
-                    <ScrollView contentContainerStyle={styles.Image} directionalLockEnabled={false}
-                                horizontal={true}>
-                        {
-                            imgUrls.map((image, index) => {
-                                return (
-                                    <Image key={index} source={image} style={styles.ImageArea}/>
-                                )
-                            })
-                        }
-                    </ScrollView>
+                    <FlatList
+                        style={styles.image}
+                        data={imgUrls}
+                        keyExtractor={(item, index) => {
+                            console.log(index);
+                            return item.id;
+                        }}
+                        maxToRenderPerBatch={0}
+                        showsHorizontalScrollIndicator={false}
+                        horizontal={true}
+                        renderItem={(image) => {
+                            console.log(12);
+                            return (
+                                <Image source={image.item.url} style={styles.ImageArea}/>
+                            );
+                        }}
+                    />
 
                 </View>
 
