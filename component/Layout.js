@@ -59,8 +59,9 @@ const regions = ['서울', '경기', '충북', '충남', '경북', '경남', '�
 
 export default class Layout extends Component {
 
-
     render() {
+        let indexCount=0;
+
         return (
             <SafeAreaView style={styles.Container}>
                 <View style={styles.TitleArea}>
@@ -68,23 +69,16 @@ export default class Layout extends Component {
                 </View>
                 <View style={styles.Image}>
                     <FlatList
-                        style={styles.image}
                         data={imgUrls}
-                        keyExtractor={(item, index) => {
-                            console.log(index);
-                            return item.id;
-                        }}
-                        maxToRenderPerBatch={0}
+                        keyExtractor={(item) => (item.id+indexCount++).toString()}
                         showsHorizontalScrollIndicator={false}
                         horizontal={true}
                         renderItem={(image) => {
-                            console.log(12);
                             return (
                                 <Image source={image.item.url} style={styles.ImageArea}/>
                             );
                         }}
                     />
-
                 </View>
 
                 <View style={styles.RegionArea}>
@@ -92,42 +86,45 @@ export default class Layout extends Component {
                         <Text style={styles.RegionTitle}>인기 지역</Text>
                         <Text style={styles.RegionSubTitle}>전체 지역 ></Text>
                     </View>
-
-                    <ScrollView contentContainerStyle={styles.RegionListArea} horizontal>
-                        {
-                            regions.map((region, index) => {
-                                return (
-                                    <Text style={styles.RegionItem} key={index}>{region}</Text>
-                                )
-                            })
-                        }
-                    </ScrollView>
+                    <FlatList
+                        style={styles.RegionListArea}
+                        data={regions}
+                        keyExtractor={(item) => (item+indexCount++).toString()}
+                        showsHorizontalScrollIndicator={false}
+                        horizontal={true}
+                        renderItem={(region) => {
+                            return (
+                                <Text style={styles.RegionItem} >{region.item}</Text>
+                            );
+                        }}
+                    />
                 </View>
                 <View style={styles.HotDealArea}>
                     <View style={styles.HotDealTitleArea}>
                         <Text style={styles.HotDealTitle}>핫딜 - 야놀자 ONLY!</Text>
                     </View>
-                    <ScrollView contentContainerStyle={styles.HotDealList}
-                                directionalLockEnabled={false}
-                                automaticallyAdjustContentInsets={false}
-                                horizontal={true}>
-                        {
-                            hotDealImgUrls.map((image, index) => {
-                                return (
-                                    <View key={index} style={styles.HotDealView}>
-                                        <Image source={image.url} style={styles.HotDealImage}/>
-                                        <View style={styles.HotDealSubArea}>
-                                            <Text style={styles.HotDealViewTitle}
-                                                  numberOfLines = { 1 }
-                                            >{image.title}
-                                            </Text>
-                                            <Text style={styles.HotDealViewSubTitle}>{image.subTitle}</Text>
-                                        </View>
+
+                    <FlatList
+                        style={styles.HotDealList}
+                        data={hotDealImgUrls}
+                        keyExtractor={(item) => (item.url+indexCount++).toString()}
+                        showsHorizontalScrollIndicator={false}
+                        horizontal={true}
+                        renderItem={(image) => {
+                            return (
+                                <View  style={styles.HotDealView}>
+                                    <Image source={image.item.url} style={styles.HotDealImage}/>
+                                    <View style={styles.HotDealSubArea}>
+                                        <Text style={styles.HotDealViewTitle}
+                                              numberOfLines = { 1 }
+                                        >{image.item.title}
+                                        </Text>
+                                        <Text style={styles.HotDealViewSubTitle}>{image.item.subTitle}</Text>
                                     </View>
-                                )
-                            })
-                        }
-                    </ScrollView>
+                                </View>
+                            );
+                        }}
+                    />
                 </View>
             </SafeAreaView>
 
@@ -175,11 +172,10 @@ const styles = StyleSheet.create({
         fontWeight: '800'
     },
     HotDealList: {
-        height: 300,
     },
     HotDealArea: {
         width: width - 40,
-        height: 350,
+        height: 320,
         paddingBottom: 26,
         borderBottomColor: '#f2f2f2',
         borderBottomWidth: 1,
@@ -222,13 +218,11 @@ const styles = StyleSheet.create({
         height: 140
     },
     RegionTitleArea: {
-        flex: 5,
+        flex: 1,
         flexDirection: 'row'
     },
     RegionListArea: {
-        flex: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
+        flex: 9,
         flexDirection: 'row',
     },
     RegionItem: {
@@ -239,7 +233,8 @@ const styles = StyleSheet.create({
         marginRight: 10,
         borderColor: '#999',
         borderRadius: 18,
-        textAlign: 'center', lineHeight: 38
+        textAlign: 'center',
+        lineHeight: 38
     },
     RegionTitle: {
         alignItems: 'flex-start',
