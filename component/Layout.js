@@ -67,6 +67,9 @@ export default class Layout extends Component {
                 <View style={styles.TitleArea}>
                     <Text style={styles.Title}>레저 / 티켓</Text>
                 </View>
+                <ScrollView
+                    contentContainerStyle={styles.ScrollContainer}
+                >
                 <View style={styles.Image}>
                     <FlatList
                         data={imgUrls}
@@ -126,6 +129,61 @@ export default class Layout extends Component {
                         }}
                     />
                 </View>
+                <View style={styles.HotDealArea}>
+                    <View style={styles.HotDealTitleArea}>
+                        <Text style={styles.HotDealTitle}>핫딜 - 야놀자 ONLY!</Text>
+                    </View>
+
+                    <FlatList
+                        style={styles.HotDealList}
+                        data={hotDealImgUrls}
+                        keyExtractor={(item) => (item.url+indexCount++).toString()}
+                        showsHorizontalScrollIndicator={false}
+                        horizontal={true}
+                        renderItem={(image) => {
+                            return (
+                                <View  style={styles.HotDealView}>
+                                    <Image source={image.item.url} style={styles.HotDealImage}/>
+                                    <View style={styles.HotDealSubArea}>
+                                        <Text style={styles.HotDealViewTitle}
+                                              numberOfLines = { 1 }
+                                        >{image.item.title}
+                                        </Text>
+                                        <Text style={styles.HotDealViewSubTitle}>{image.item.subTitle}</Text>
+                                    </View>
+                                </View>
+                            );
+                        }}
+                    />
+                </View>
+                <View style={styles.HotDealArea}>
+                    <View style={styles.HotDealTitleArea}>
+                        <Text style={styles.HotDealTitle}>핫딜 - 야놀자 ONLY!</Text>
+                    </View>
+
+                    <FlatList
+                        style={styles.HotDealList}
+                        data={hotDealImgUrls}
+                        keyExtractor={(item) => (item.url+indexCount++).toString()}
+                        showsHorizontalScrollIndicator={false}
+                        horizontal={true}
+                        renderItem={(image) => {
+                            return (
+                                <View  style={styles.HotDealView}>
+                                    <Image source={image.item.url} style={styles.HotDealImage}/>
+                                    <View style={styles.HotDealSubArea}>
+                                        <Text style={styles.HotDealViewTitle}
+                                              numberOfLines = { 1 }
+                                        >{image.item.title}
+                                        </Text>
+                                        <Text style={styles.HotDealViewSubTitle}>{image.item.subTitle}</Text>
+                                    </View>
+                                </View>
+                            );
+                        }}
+                    />
+                </View>
+                </ScrollView>
             </SafeAreaView>
 
         )
@@ -137,6 +195,9 @@ const styles = StyleSheet.create({
     Container: {
         flex: 1,
         backgroundColor: 'white',
+        alignItems: 'center'
+    },
+    ScrollContainer:{
         alignItems: 'center'
     },
     HotDealView: {
