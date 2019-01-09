@@ -270,13 +270,13 @@ const styles = StyleSheet.create({
     RegionArea: {
         width: width - 40,
         marginTop: 26,
-        paddingBottom: 26,
+        paddingBottom: 16,
         paddingTop: 26,
         borderTopColor: '#f2f2f2',
         borderBottomColor: '#f2f2f2',
         borderTopWidth: 1,
         borderBottomWidth: 1,
-        height: 140
+        height: 120
     },
     RegionTitleArea: {
         flex: 1,
@@ -289,13 +289,13 @@ const styles = StyleSheet.create({
     RegionItem: {
         color: '#333',
         borderWidth: 1,
-        width: 65,
-        height: 38,
+        width: 55,
+        height: 30,
         marginRight: 10,
         borderColor: '#999',
-        borderRadius: 18,
+        borderRadius: 13,
         textAlign: 'center',
-        lineHeight: 38
+        lineHeight: 30
     },
     RegionTitle: {
         alignItems: 'flex-start',
