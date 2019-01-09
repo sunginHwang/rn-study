@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, Image, Dimensions, ScrollView, FlatList} from 'react-native';
 import {SafeAreaView} from 'react-navigation';
-
-
 import LineText from "../LineText";
 
 const {width} = Dimensions.get('window');
@@ -63,11 +61,13 @@ export default class Layout extends Component {
         let indexCount=0;
 
         return (
-            <SafeAreaView style={styles.Container}>
+            <SafeAreaView
+                style={styles.Container}>
                 <View style={styles.TitleArea}>
                     <Text style={styles.Title}>레저 / 티켓</Text>
                 </View>
                 <ScrollView
+                    showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.ScrollContainer}
                 >
                 <View style={styles.Image}>
