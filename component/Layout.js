@@ -129,59 +129,15 @@ export default class Layout extends Component {
                         }}
                     />
                 </View>
-                <View style={styles.HotDealArea}>
-                    <View style={styles.HotDealTitleArea}>
-                        <Text style={styles.HotDealTitle}>핫딜 - 야놀자 ONLY!</Text>
+                <View style={styles.closureRegion}>
+                    <View style={styles.closureRegionTitleArea}>
+                        <Text style={styles.closureRegionTitle}>
+                            내 주변 레저/티켓
+                        </Text>
+                        <Text style={styles.closureRegionAddress}>
+                            경기도 고양시 일산동 탄중로
+                        </Text>
                     </View>
-
-                    <FlatList
-                        style={styles.HotDealList}
-                        data={hotDealImgUrls}
-                        keyExtractor={(item) => (item.url+indexCount++).toString()}
-                        showsHorizontalScrollIndicator={false}
-                        horizontal={true}
-                        renderItem={(image) => {
-                            return (
-                                <View  style={styles.HotDealView}>
-                                    <Image source={image.item.url} style={styles.HotDealImage}/>
-                                    <View style={styles.HotDealSubArea}>
-                                        <Text style={styles.HotDealViewTitle}
-                                              numberOfLines = { 1 }
-                                        >{image.item.title}
-                                        </Text>
-                                        <Text style={styles.HotDealViewSubTitle}>{image.item.subTitle}</Text>
-                                    </View>
-                                </View>
-                            );
-                        }}
-                    />
-                </View>
-                <View style={styles.HotDealArea}>
-                    <View style={styles.HotDealTitleArea}>
-                        <Text style={styles.HotDealTitle}>핫딜 - 야놀자 ONLY!</Text>
-                    </View>
-
-                    <FlatList
-                        style={styles.HotDealList}
-                        data={hotDealImgUrls}
-                        keyExtractor={(item) => (item.url+indexCount++).toString()}
-                        showsHorizontalScrollIndicator={false}
-                        horizontal={true}
-                        renderItem={(image) => {
-                            return (
-                                <View  style={styles.HotDealView}>
-                                    <Image source={image.item.url} style={styles.HotDealImage}/>
-                                    <View style={styles.HotDealSubArea}>
-                                        <Text style={styles.HotDealViewTitle}
-                                              numberOfLines = { 1 }
-                                        >{image.item.title}
-                                        </Text>
-                                        <Text style={styles.HotDealViewSubTitle}>{image.item.subTitle}</Text>
-                                    </View>
-                                </View>
-                            );
-                        }}
-                    />
                 </View>
                 </ScrollView>
             </SafeAreaView>
@@ -192,6 +148,25 @@ export default class Layout extends Component {
 
 
 const styles = StyleSheet.create({
+    closureRegion:{
+        marginTop:30,
+        width:width-40
+    },
+    closureRegionTitleArea:{
+        flex:1,
+        flexDirection: 'row',
+    },
+    closureRegionTitle:{
+        fontSize: 18,
+        width: width * 0.5,
+        fontWeight: '800',
+        alignItems: 'flex-start'
+    },
+    closureRegionAddress:{
+        color:'#666',
+        fontWeight: '500',
+        alignItems: 'flex-end'
+    },
     Container: {
         flex: 1,
         backgroundColor: 'white',
