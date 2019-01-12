@@ -1,3 +1,46 @@
+export const LEISURE_CATEGORIES = [{
+    url:{
+        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f397ce4b23.08559960.png'
+    },
+    name:'스파/워터파크'
+},{
+    url:{
+        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f397f37e22.94562344.png'
+    },
+    name:'테마파크'
+},{
+    url:{
+        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f398040265.53958211.png'
+    },
+    name:'입장권'
+},{
+    url:{
+        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3d40a96c0.07227208.png'
+    },
+    name:'레저'
+},{
+    url:{
+        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3d4308c75.87779494.png'
+    },
+    name:'키즈'
+},{
+    url:{
+        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3d4346fb9.33861716.png'
+    },
+    name:'공연/전시'
+},{
+    url:{
+        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3ef40a5f6.24565096.png'
+    },
+    name:'체험/전시'
+},{
+    url:{
+        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3ef4f1906.60739988.png'
+    },
+    name:'모든상품'
+},
+];
+
 export const LEISURE_TITLE_IMAGES = [{
     url:{
         uri: 'https://yaimg.yanolja.com/joy/sunny/static/images/promotion/bnr-leisure-open-op.png'

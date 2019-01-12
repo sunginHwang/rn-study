@@ -5,6 +5,7 @@ import LeisureTitle from "../../../component/leasure/main/LeisureTitle";
 import PopularRegions from "../../../component/leasure/main/PopularRegions";
 import LeisureHotDealArea from "../../../component/leasure/main/LeisureHotDealArea";
 import ClosureRegion from "../../../component/leasure/main/ClosureRegion";
+import LeisureCategory from "../../../component/leasure/main/LeisureCategory/LeisureCategory";
 
 const {width} = Dimensions.get('window');
 
@@ -22,6 +23,7 @@ export default class LeisureListContainer extends Component {
                     contentContainerStyle={styles.ScrollContainer}
                 >
                     <LeisureTitle/>
+                    <LeisureCategory/>
                     <PopularRegions/>
                     <LeisureHotDealArea/>
                    <ClosureRegion/>
