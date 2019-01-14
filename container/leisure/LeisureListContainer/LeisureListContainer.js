@@ -11,6 +11,10 @@ const {width} = Dimensions.get('window');
 
 export default class LeisureListContainer extends Component {
 
+    static navigationOptions = {
+        drawerLabel:'test'
+    };
+
     render() {
         return (
             <SafeAreaView
