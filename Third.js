@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Dimensions, View} from 'react-native';
+import {Dimensions, View, Button} from 'react-native';
 import ClientNetworkHandle from "./ClientNetworkHandle";
 import InputHandle from "./InputHandle";
 import AnimationComponent from "./AnimationComponent";
@@ -16,6 +16,10 @@ export default class Third extends Component {
                 <InputHandle/>
                 <AnimationComponent style={{width:width , height:3}}>
                     <HalfView msg='FadeInHalfViewTest'/>
+                    <Button
+                        onPress={()=>this.props.navigation.navigate('첫번째')}
+                        title='뒤로가기'/>
+
                 </AnimationComponent></View>        )
     }
 }

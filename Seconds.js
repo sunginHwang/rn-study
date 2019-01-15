@@ -12,9 +12,6 @@ export default class Seconds extends Component {
         return (
             <SafeAreaView style={styles.Container}>
                 <LineText name='Open up 성인 App.js to start working on your app!'/>
-                <Button
-                    onPress={()=>this.props.navigation.goBack()}
-                title='뒤로가기'/>
 
             </SafeAreaView>
         )

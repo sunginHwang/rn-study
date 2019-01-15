@@ -1,8 +1,17 @@
 import React from 'react';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import LeisureListContainer from './container/leisure/LeisureListContainer';
 import Seconds from './Seconds';
 import Third from './Third';
+
+const StackNavigator = createStackNavigator({
+    Seconds: {
+        screen: Seconds,
+        navigationOptions:({navigation}) => ({
+          header: null
+        })
+    }
+});
 
 const TabNavigator = createBottomTabNavigator({
     첫번째: { screen: LeisureListContainer },
@@ -10,4 +19,7 @@ const TabNavigator = createBottomTabNavigator({
     세번째: { screen: Third },
 });
 
-export default createAppContainer(TabNavigator);
+export default createAppContainer(createSwitchNavigator({
+    TabNavigator,
+    StackNavigator
+}));
