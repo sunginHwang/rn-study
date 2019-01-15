@@ -21,9 +21,12 @@ export const styles = StyleSheet.create({
         color: '#666',
         fontWeight: '500'
     },
-    CategoryArea: {
+    CategoryTouchArea: {
         flex: 2.5,
         alignItems: 'center',
     },
+    CategoryArea:{
+        alignItems: 'center',
+    }
 
 });

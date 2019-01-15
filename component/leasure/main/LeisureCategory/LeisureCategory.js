@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Image } from 'react-native';
+import {View, Text, Image, TouchableOpacity } from 'react-native';
 import {LEISURE_CATEGORIES} from '../../../../core/constants';
 
 import {styles} from "./style";
@@ -14,10 +14,17 @@ class LeisureCategory extends Component {
                     {
                         LEISURE_CATEGORIES.map((category, index) => {
                             return (index > 3 &&
-                                <View key={index} style={styles.CategoryArea}>
-                                    <Image source={category.url} style={styles.CategoryImage}/>
-                                    <Text style={styles.CategoryName}>{category.name}</Text>
-                                </View>
+                                <TouchableOpacity
+                                    key={index}
+                                    style={styles.CategoryTouchArea}
+                                    onPress={()=>this.props.navigation.navigate('두번째')}
+                                >
+                                    <View style={styles.CategoryArea} >
+                                        <Image source={category.url} style={styles.CategoryImage}/>
+                                        <Text style={styles.CategoryName}>{category.name}</Text>
+                                    </View>
+                                </TouchableOpacity>
+
                             )
                         })
                     }
@@ -28,10 +35,16 @@ class LeisureCategory extends Component {
                     {
                         LEISURE_CATEGORIES.map((category, index) => {
                             return (index <= 3 &&
-                                <View key={index} style={styles.CategoryArea}>
-                                    <Image source={category.url} style={styles.CategoryImage}/>
-                                    <Text style={styles.CategoryName}>{category.name}</Text>
-                                </View>
+                                <TouchableOpacity
+                                    key={index}
+                                    style={styles.CategoryTouchArea}
+                                    onPress={()=>this.props.navigation.navigate('두번째')}
+                                >
+                                    <View style={styles.CategoryArea} >
+                                        <Image source={category.url} style={styles.CategoryImage}/>
+                                        <Text style={styles.CategoryName}>{category.name}</Text>
+                                    </View>
+                                </TouchableOpacity>
                             )
                         })
                     }

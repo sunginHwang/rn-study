@@ -1,10 +1,10 @@
 import React from 'react';
-import { createBottomTabNavigator, createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer, createDrawerNavigator, createSwitchNavigator } from 'react-navigation';
 import LeisureListContainer from './container/leisure/LeisureListContainer';
 import Seconds from './Seconds';
 import Third from './Third';
 
-const StackNavigator = createStackNavigator({
+const StackNavigator = createDrawerNavigator({
     Seconds: {
         screen: Seconds,
         navigationOptions:({navigation}) => ({

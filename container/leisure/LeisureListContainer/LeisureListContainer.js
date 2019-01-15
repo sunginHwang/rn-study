@@ -27,7 +27,9 @@ export default class LeisureListContainer extends Component {
                     contentContainerStyle={styles.ScrollContainer}
                 >
                     <LeisureTitle/>
-                    <LeisureCategory/>
+                    <LeisureCategory
+                        navigation={this.props.navigation}
+                    />
                     <PopularRegions/>
                     <LeisureHotDealArea/>
                    <ClosureRegion/>
