@@ -17,7 +17,10 @@ class LeisureCategory extends Component {
                                 <TouchableOpacity
                                     key={index}
                                     style={styles.CategoryTouchArea}
-                                    onPress={()=>this.props.navigation.navigate('두번째')}
+                                    onPress={()=>this.props.navigation.navigate({
+                                        routeName:'두번째',
+                                        transitionStyle:'inverted'
+                                    })}
                                 >
                                     <View style={styles.CategoryArea} >
                                         <Image source={category.url} style={styles.CategoryImage}/>
