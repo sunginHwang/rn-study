@@ -1,58 +1,58 @@
 export const LEISURE_CATEGORIES = [{
-    url:{
-        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f397ce4b23.08559960.png'
+    url: {
+        url: 'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f397ce4b23.08559960.png'
     },
-    name:'스파/워터파크'
-},{
-    url:{
-        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f397f37e22.94562344.png'
+    name: '스파/워터파크'
+}, {
+    url: {
+        url: 'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f397f37e22.94562344.png'
     },
-    name:'테마파크'
-},{
-    url:{
-        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f398040265.53958211.png'
+    name: '테마파크'
+}, {
+    url: {
+        url: 'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f398040265.53958211.png'
     },
-    name:'입장권'
-},{
-    url:{
-        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3d40a96c0.07227208.png'
+    name: '입장권'
+}, {
+    url: {
+        url: 'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3d40a96c0.07227208.png'
     },
-    name:'레저'
-},{
-    url:{
-        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3d4308c75.87779494.png'
+    name: '레저'
+}, {
+    url: {
+        url: 'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3d4308c75.87779494.png'
     },
-    name:'키즈'
-},{
-    url:{
-        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3d4346fb9.33861716.png'
+    name: '키즈'
+}, {
+    url: {
+        url: 'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3d4346fb9.33861716.png'
     },
-    name:'공연/전시'
-},{
-    url:{
-        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3ef40a5f6.24565096.png'
+    name: '공연/전시'
+}, {
+    url: {
+        url: 'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3ef40a5f6.24565096.png'
     },
-    name:'체험/전시'
-},{
-    url:{
-        url:'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3ef4f1906.60739988.png'
+    name: '체험/전시'
+}, {
+    url: {
+        url: 'https://yaimg.yanolja.com/v5/2018/12/04/12/5c05f3ef4f1906.60739988.png'
     },
-    name:'모든상품'
+    name: '모든상품'
 },
 ];
 
 export const LEISURE_TITLE_IMAGES = [{
-    url:{
+    url: {
         uri: 'https://yaimg.yanolja.com/joy/sunny/static/images/promotion/bnr-leisure-open-op.png'
     },
-    id:1,
-    uuid:'test'
+    id: 1,
+    uuid: 'test'
 }, {
-    url:{
+    url: {
         uri: 'https://yaimg.yanolja.com/joy/sunny/static/images/promotion/bnr_leisure_winter.png'
     },
-    id:2,
-    uuid:'test2'
+    id: 2,
+    uuid: 'test2'
 }];
 
 export const LEISURE_HOT_DEAL_IMAGES = [
@@ -89,6 +89,30 @@ export const LEISURE_HOT_DEAL_IMAGES = [
 
 export const LEISURE_POPULAR_REGIONS =
     ['서울', '경기', '충북', '충남', '경북', '경남', '인천', '강원도', '부산', '강원', '속초', '경주', '부산', '일산', '파주'];
+
+export const LEISURE_DETAIL_MAIN_IMG_LIST = [{
+    uri: 'https://static.leisureq.io/origin/production-gajago-deal-images/fe91a956-7ce8-4683-809f-924388eb562c.jpg'
+}, {
+    uri: 'https://static.leisureq.io/origin/production-gajago-deal-images/7c413f97-e81f-4b4c-b641-c74d211a7f49.jpg'
+
+}, {
+    uri: 'https://static.leisureq.io/origin/production-gajago-deal-images/1971dedf-a0bd-43d4-aba4-1e5869b5aadb.jpg'
+
+}, {
+    uri: 'https://static.leisureq.io/origin/production-gajago-deal-images/1d38e09b-e4dc-4c7b-b57e-7b16606017d1.JPG'
+}];
+
+export const LEISURE_DETAIL_INFO = {
+    title: '[경기 이천] 테르메덴 온천수 스파 동계시즌(12/15~3/1)',
+    description: '행복으로 가득한 지상 낙원',
+    isPopularPlace: true,
+    popularPlace:{
+        title: '실검에 뜬 핫플',
+        description: '요즘 나이트 스파 핫한거 아시죠? 서울에서 1시간 거리, 4시 부터 입장가능하구요! 동서울 종합터미널에서 테르메덴까지 가는 직통 버스도 있다는 사실(완전 꿀팁) '
+    },
+    point: 2,
+
+};
 
 export const LEISURE_CLOSURE_LEISURE_INFO_LIST = [
     {

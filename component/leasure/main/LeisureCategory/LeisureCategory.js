@@ -18,7 +18,7 @@ class LeisureCategory extends Component {
                                     key={index}
                                     style={styles.CategoryTouchArea}
                                     onPress={()=>this.props.navigation.navigate({
-                                        routeName:'두번째',
+                                        routeName:'LeisureDetailInfo',
                                         transitionStyle:'inverted'
                                     })}
                                 >

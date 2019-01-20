@@ -9,6 +9,7 @@ import { createBottomTabNavigator,
 import LeisureListContainer from './container/leisure/LeisureListContainer';
 import Seconds from './Seconds';
 import Third from './Third';
+import LeisureDetailInfoContainer from './container/leisure/LeisureDetailInfoContainer';
 
 const IOS_MODAL_ROUTES = ['OptionsScreen'];
 
@@ -38,10 +39,18 @@ const StackNavigator = createStackNavigator({
         navigationOptions:({navigation}) => ({
             header: null
         })},
+
     Seconds: {
         screen: Seconds,
         navigationOptions:({navigation}) => ({
           header: null
+        })
+    },
+
+    LeisureDetailInfo: {
+        screen: LeisureDetailInfoContainer,
+        navigationOptions:({navigation}) => ({
+            header: null
         })
     }
 }, {
