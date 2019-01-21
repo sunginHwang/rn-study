@@ -67,6 +67,24 @@ export default class LeisureDetailInfoContainer extends Component {
                             }
                         </View>
                     </View>
+                <View>
+                   <View>
+                       <Text>유효기간</Text>
+                       <Text>{LEISURE_DETAIL_INFO.introduction.periodStartDate} ~ {LEISURE_DETAIL_INFO.introduction.periodEndDate}</Text>
+                   </View>
+                    <View>
+                        <Text>{LEISURE_DETAIL_INFO.introduction.availDate}부터</Text>
+                        <Text>이용가능</Text>
+                    </View>
+                    <View>
+                        <Text>문의번호</Text>
+                        <Text>{LEISURE_DETAIL_INFO.introduction.phoneNumber}</Text>
+                    </View>
+                    <View>
+                        <Text>유효기간내</Text>
+                        <Text>{LEISURE_DETAIL_INFO.introduction.remainType}</Text>
+                    </View>
+                </View>
             </View>
 
         )

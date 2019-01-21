@@ -12,7 +12,7 @@ export default class Seconds extends Component {
     render() {
         return (
             <SafeAreaView style={styles.Container}>
-                <ClosureRegion/>
+                <ClosureRegion navigation={this.props.navigation}/>
                 <Button
                     onPress={()=>this.props.navigation.goBack()}
                     title='뒤로가기'/>

@@ -27,7 +27,7 @@ let dynamicModalTransition = (transitionProps, prevTransitionProps) => {
 };
 
 const StackNavigator = createStackNavigator({
-    첫번째: { screen: LeisureListContainer,
+    첫번째: { screen: LeisureDetailInfoContainer,
         navigationOptions:({navigation}) => ({
             header: null
         })},
