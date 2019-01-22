@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image, Dimensions, Button, FlatList, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, Image, Dimensions, Button, FlatList, TouchableOpacity, ScrollView} from 'react-native';
 import {LEISURE_DETAIL_MAIN_IMG_LIST, LEISURE_DETAIL_INFO} from "../../../core/constants";
 import { getStatusBarHeight } from 'react-native-status-bar-height';
+import InstructionList from "../../../component/common/InstructionList/InstructionList";
 
 const {width} = Dimensions.get('window');
 
@@ -13,6 +14,10 @@ export default class LeisureDetailInfoContainer extends Component {
         return (
             <View
                 style={styles.Container}>
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={styles.ScrollContainer}
+                >
                     <View style={styles.mainTitleArea}>
                         <TouchableOpacity
                             onPress={()=>this.props.navigation.goBack()}
@@ -56,18 +61,18 @@ export default class LeisureDetailInfoContainer extends Component {
                         }
 
                     </View>
-                    <View style={styles.purchaseArea}>
-                        <View style={styles.purchaseButton}>
-                            <Text style={styles.purchaseButtonPrice}>상품을 선택해주세요</Text>
-                            {
-                                LEISURE_DETAIL_INFO.point !== 0 &&
-                                <Text style={styles.purchaseButtonPoint}>
-                                    레저/티켓 구매시 {LEISURE_DETAIL_INFO.point}% 포인트 적립
-                                </Text>
-                            }
-                        </View>
-                    </View>
-                <View>
+
+                <View style={styles.useInfoArea}>
+                   <InstructionList
+                        title='상품기본정보'
+                        lists={LEISURE_DETAIL_INFO.productUseInstructions}
+                   />
+                    <InstructionList
+                        title='유의사항안내'
+                        lists={LEISURE_DETAIL_INFO.notices}
+                    />
+                </View>
+               {/* <View>
                    <View>
                        <Text>유효기간</Text>
                        <Text>{LEISURE_DETAIL_INFO.introduction.periodStartDate} ~ {LEISURE_DETAIL_INFO.introduction.periodEndDate}</Text>
@@ -84,6 +89,18 @@ export default class LeisureDetailInfoContainer extends Component {
                         <Text>유효기간내</Text>
                         <Text>{LEISURE_DETAIL_INFO.introduction.remainType}</Text>
                     </View>
+                </View>*/}
+                </ScrollView>
+                <View style={styles.purchaseArea}>
+                    <View style={styles.purchaseButton}>
+                        <Text style={styles.purchaseButtonPrice}>상품을 선택해주세요</Text>
+                        {
+                            LEISURE_DETAIL_INFO.point !== 0 &&
+                            <Text style={styles.purchaseButtonPoint}>
+                                레저/티켓 구매시 {LEISURE_DETAIL_INFO.point}% 포인트 적립
+                            </Text>
+                        }
+                    </View>
                 </View>
             </View>
 
@@ -93,6 +110,12 @@ export default class LeisureDetailInfoContainer extends Component {
 
 
 const styles = StyleSheet.create({
+    ScrollContainer:{
+     alignItems:'center'
+    },
+    useInfoArea:{
+        width: width-30,
+    },
     purchaseButtonPrice:{
       color:'#fff',
       fontSize:20,
