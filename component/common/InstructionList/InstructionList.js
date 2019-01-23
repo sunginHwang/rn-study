@@ -5,8 +5,6 @@ const {width} = Dimensions.get('window');
 
 export default class InstructionList extends Component {
 
-
-
     render() {
 
         return (
@@ -18,8 +16,10 @@ export default class InstructionList extends Component {
               {
                   this.props.lists &&
                   this.props.lists.map((list,index)=>{
-                      return(
-                          <Text key={index} style={styles.listItem}>{list}</Text>
+                      return(<View style={styles.listItemArea} key={index} >
+                              <Text style={styles.listBullet} >{'\u2022'}</Text>
+                              <Text style={styles.listItem} >{list}</Text>
+                          </View>
                       )
                   })
               }
@@ -41,13 +41,22 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 15,
     },
-    listItem:{
-      paddingLeft:14,
+    listItemArea:{
         marginTop:10,
+        flexDirection: 'row',
+    },
+    listItem:{
         lineHeight:18,
         color:'#666',
         fontWeight:'500',
-        fontSize:15
+        fontSize:15,
     },
+    listBullet:{
+        lineHeight:18,
+        color:'#666',
+        fontWeight:'500',
+        fontSize:15,
+        paddingRight:10,
+    }
 
 });
