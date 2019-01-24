@@ -46,13 +46,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     listItem:{
-        lineHeight:18,
+        lineHeight:15,
         color:'#666',
         fontWeight:'500',
         fontSize:15,
     },
     listBullet:{
-        lineHeight:18,
+        lineHeight:15,
         color:'#666',
         fontWeight:'500',
         fontSize:15,

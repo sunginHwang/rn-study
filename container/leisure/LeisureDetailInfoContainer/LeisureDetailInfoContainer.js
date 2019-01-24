@@ -8,6 +8,14 @@ const {width} = Dimensions.get('window');
 
 export default class LeisureDetailInfoContainer extends Component {
 
+    getProductBasicInfo = (instruction) =>{
+        const saleDateInfo = '판매기간 : ~ '+instruction.periodEndDate;
+        const remainDateInfo = '유효기간 : '+instruction.periodStartDate+' ~ '+instruction.periodEndDate;
+        const saleUseInfo = '해당 티켓은 '+instruction.availDate+' 부터 사용 가능 합니다.';
+
+        return [saleDateInfo, remainDateInfo, saleUseInfo]
+    };
+
     render() {
         let indexCount = 0;
 
@@ -63,12 +71,19 @@ export default class LeisureDetailInfoContainer extends Component {
                     </View>
 
                 <View style={styles.useInfoArea}>
+
+                    <Text style={styles.useInfoTitle}>이용 상세 정보</Text>
+                    <InstructionList
+                    title='상품 기본 정보'
+                    lists={this.getProductBasicInfo(LEISURE_DETAIL_INFO.introduction)}
+                    />
+
                    <InstructionList
-                        title='상품기본정보'
+                        title='상품 기본 정보'
                         lists={LEISURE_DETAIL_INFO.productUseInstructions}
                    />
                     <InstructionList
-                        title='유의사항안내'
+                        title='유의 사항 안내'
                         lists={LEISURE_DETAIL_INFO.notices}
                     />
                 </View>
@@ -113,7 +128,18 @@ const styles = StyleSheet.create({
     ScrollContainer:{
      alignItems:'center'
     },
+    useInfoTitle:{
+      fontSize:17,
+        color:'#333',
+        fontWeight:'bold',
+        marginBottom:15
+    },
     useInfoArea:{
+        borderBottomColor:'#f2f2f2',
+        borderBottomWidth:1,
+        width: width-30,
+        paddingBottom:20,
+        marginBottom:20,
         width: width-30,
     },
     purchaseButtonPrice:{
