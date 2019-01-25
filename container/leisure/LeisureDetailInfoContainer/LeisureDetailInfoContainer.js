@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, Image, Dimensions, Button, FlatList, TouchableOpacity, ScrollView} from 'react-native';
 import {LEISURE_DETAIL_MAIN_IMG_LIST, LEISURE_DETAIL_INFO} from "../../../core/constants";
-import { getStatusBarHeight } from 'react-native-status-bar-height';
-import InstructionList from "../../../component/common/InstructionList/InstructionList";
+import {getStatusBarHeight} from 'react-native-status-bar-height';
+import ProductInformation from "../../../component/leasure/detail/ProductInformation";
 
 const {width} = Dimensions.get('window');
 
 export default class LeisureDetailInfoContainer extends Component {
 
-    getProductBasicInfo = (instruction) =>{
-        const saleDateInfo = '판매기간 : ~ '+instruction.periodEndDate;
-        const remainDateInfo = '유효기간 : '+instruction.periodStartDate+' ~ '+instruction.periodEndDate;
-        const saleUseInfo = '해당 티켓은 '+instruction.availDate+' 부터 사용 가능 합니다.';
+    getProductBasicInfo = (instruction) => {
+        const saleDateInfo = '판매기간 : ~ ' + instruction.periodEndDate;
+        const remainDateInfo = '유효기간 : ' + instruction.periodStartDate + ' ~ ' + instruction.periodEndDate;
+        const saleUseInfo = '해당 티켓은 ' + instruction.availDate + ' 부터 사용 가능 합니다.';
 
         return [saleDateInfo, remainDateInfo, saleUseInfo]
     };
@@ -28,7 +28,7 @@ export default class LeisureDetailInfoContainer extends Component {
                 >
                     <View style={styles.mainTitleArea}>
                         <TouchableOpacity
-                            onPress={()=>this.props.navigation.goBack()}
+                            onPress={() => this.props.navigation.goBack()}
                         >
                             <Text style={styles.BackBtn}>←</Text>
                         </TouchableOpacity>
@@ -37,7 +37,7 @@ export default class LeisureDetailInfoContainer extends Component {
                     <View style={styles.mainImgArea}>
                         <FlatList
                             data={LEISURE_DETAIL_MAIN_IMG_LIST}
-                            keyExtractor={(item) => (item+indexCount++).toString()}
+                            keyExtractor={(item) => (item + indexCount++).toString()}
                             showsHorizontalScrollIndicator={false}
                             horizontal={true}
                             renderItem={(mainImg) => {
@@ -52,14 +52,14 @@ export default class LeisureDetailInfoContainer extends Component {
                         <Text style={styles.leisureDescription}>{LEISURE_DETAIL_INFO.description}</Text>
                         {
                             LEISURE_DETAIL_INFO.isPopularPlace &&
-                                <View style={styles.popularPlaceArea}>
-                                    <Text style={styles.popularPlaceTitle}>
-                                        지금인기 - {LEISURE_DETAIL_INFO.popularPlace.title}
-                                        </Text>
-                                    <Text style={styles.popularPlaceDescription}>
-                                        {LEISURE_DETAIL_INFO.popularPlace.description}
-                                    </Text>
-                                </View>
+                            <View style={styles.popularPlaceArea}>
+                                <Text style={styles.popularPlaceTitle}>
+                                    지금인기 - {LEISURE_DETAIL_INFO.popularPlace.title}
+                                </Text>
+                                <Text style={styles.popularPlaceDescription}>
+                                    {LEISURE_DETAIL_INFO.popularPlace.description}
+                                </Text>
+                            </View>
                         }
                         {
                             LEISURE_DETAIL_INFO.point !== 0 &&
@@ -69,25 +69,13 @@ export default class LeisureDetailInfoContainer extends Component {
                         }
 
                     </View>
-
-                <View style={styles.useInfoArea}>
-
-                    <Text style={styles.useInfoTitle}>이용 상세 정보</Text>
-                    <InstructionList
-                    title='상품 기본 정보'
-                    lists={this.getProductBasicInfo(LEISURE_DETAIL_INFO.introduction)}
+                    <ProductInformation
+                        basicInformation={this.getProductBasicInfo(LEISURE_DETAIL_INFO.introduction)}
+                        useInformation={LEISURE_DETAIL_INFO.productUseInstructions}
+                        notices={LEISURE_DETAIL_INFO.notices}
                     />
 
-                   <InstructionList
-                        title='상품 기본 정보'
-                        lists={LEISURE_DETAIL_INFO.productUseInstructions}
-                   />
-                    <InstructionList
-                        title='유의 사항 안내'
-                        lists={LEISURE_DETAIL_INFO.notices}
-                    />
-                </View>
-               {/* <View>
+                    {/* <View>
                    <View>
                        <Text>유효기간</Text>
                        <Text>{LEISURE_DETAIL_INFO.introduction.periodStartDate} ~ {LEISURE_DETAIL_INFO.introduction.periodEndDate}</Text>
@@ -125,114 +113,100 @@ export default class LeisureDetailInfoContainer extends Component {
 
 
 const styles = StyleSheet.create({
-    ScrollContainer:{
-     alignItems:'center'
+    ScrollContainer: {
+        alignItems: 'center'
     },
-    useInfoTitle:{
-      fontSize:17,
-        color:'#333',
-        fontWeight:'bold',
-        marginBottom:15
+    purchaseButtonPrice: {
+        color: '#fff',
+        fontSize: 20,
+        fontWeight: 'bold'
     },
-    useInfoArea:{
-        borderBottomColor:'#f2f2f2',
-        borderBottomWidth:1,
-        width: width-30,
-        paddingBottom:20,
-        marginBottom:20,
-        width: width-30,
+    purchaseButtonPoint: {
+        fontSize: 12.5,
+        color: '#fff',
+        fontWeight: '400',
     },
-    purchaseButtonPrice:{
-      color:'#fff',
-      fontSize:20,
-      fontWeight:'bold'
+    purchaseButton: {
+        backgroundColor: '#FF3478',
+        color: '#fff',
+        width: width - 20,
+        alignItems: 'center',
+        lineHeight: 60,
+        justifyContent: 'center',
+        marginTop: 5,
+        height: 60,
+        borderRadius: 8,
     },
-    purchaseButtonPoint:{
-        fontSize:12.5,
-        color:'#fff',
-        fontWeight:'400',
-    },
-    purchaseButton:{
-      backgroundColor:'#FF3478',
-        color:'#fff',
-        width:width-20,
-        alignItems:'center',
-        lineHeight:60,
-        justifyContent:'center',
-        marginTop:5,
-        height:60,
-        borderRadius:8,
-    },
-    purchaseArea:{
+    purchaseArea: {
         position: 'absolute',
-        width:width,
-        bottom:0,
-        borderTopColor:'#ddd',
-        borderTopWidth:1,
-        alignItems:'center',
-        height:getStatusBarHeight() === 0 ? 80 : 110,
-        marginTop:10,
-        backgroundColor:'#fff'
+        width: width,
+        bottom: 0,
+        borderTopColor: '#ddd',
+        borderTopWidth: 1,
+        alignItems: 'center',
+        height: getStatusBarHeight() === 0 ? 80 : 110,
+        marginTop: 10,
+        backgroundColor: '#fff'
     },
-    savePointDescription:{
-        marginTop:20,
+    savePointDescription: {
+        marginTop: 20,
         color: '#FF3478',
-        fontWeight:'500',
-        fontSize:13,
-        marginLeft:4,
+        fontWeight: '500',
+        fontSize: 13,
+        marginLeft: 4,
     },
-    popularPlaceTitle:{
-        fontWeight:'bold',
-        color:'#009bd5',
-        fontSize:17,
+    popularPlaceTitle: {
+        fontWeight: 'bold',
+        color: '#009bd5',
+        fontSize: 17,
     },
-    popularPlaceDescription:{
-        color:'#666',
-        marginTop:12,
-        fontSize:13
+    popularPlaceDescription: {
+        color: '#666',
+        marginTop: 12,
+        fontSize: 13
     },
-    popularPlaceArea:{
-        marginTop:10,
-        backgroundColor:'#f5f5f5',
-        borderRadius:8,
+    popularPlaceArea: {
+        marginTop: 10,
+        backgroundColor: '#f5f5f5',
+        borderRadius: 8,
         padding: 16
     },
-    leisureTitle:{
-       color:'#333',
-       fontWeight:'700',
-       fontSize:28,
-        marginBottom:10,
+    leisureTitle: {
+        color: '#333',
+        fontWeight: '700',
+        fontSize: 28,
+        marginBottom: 10,
     },
-    leisureDescription:{
-      color:'#666',
-      fontWeight:'500',
-      fontSize:16,
-      marginBottom:10,
+    leisureDescription: {
+        color: '#666',
+        fontWeight: '500',
+        fontSize: 16,
+        marginBottom: 10,
     },
-    BackBtn:{
-      color: '#fff',
-      fontSize:25,
-      fontWeight:'bold'
+    BackBtn: {
+        color: '#fff',
+        fontSize: 25,
+        fontWeight: 'bold'
     },
-    leisureInfoArea:{
-        borderBottomColor:'#f2f2f2',
-        borderBottomWidth:1,
-      width: width-30,
-      marginTop:20,
-      paddingBottom:20,
-      marginBottom:20,
+    leisureInfoArea: {
+        borderBottomColor: '#f2f2f2',
+        borderBottomWidth: 1,
+        width: width - 30,
+        marginTop: 20,
+        paddingBottom: 20,
+        marginBottom: 20,
     },
-    mainTitleArea:{
+    mainTitleArea: {
         position: 'absolute',
-        left:20,
-        top:getStatusBarHeight() === 0 ? 10 : getStatusBarHeight(),
-        zIndex:10,
+        left: 20,
+        top: getStatusBarHeight() === 0 ? 10 : getStatusBarHeight(),
+        zIndex: 10,
     },
-    mainImgArea:{
-      width: width,
-      height: 300
+    mainImgArea: {
+        width: width,
+        height: 300
     },
-    mainImg:{
+    mainImg: {
         width: width,
         height: 300
     },
@@ -241,7 +215,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center'
     },
-    ScrollContainer:{
+    ScrollContainer: {
         alignItems: 'center'
     },
     TitleArea: {
