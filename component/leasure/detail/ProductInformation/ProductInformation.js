@@ -12,8 +12,9 @@ export default class ProductInformation extends Component {
         const {basicInformation, useInformation, notices} = this.props;
         return (
             <View style={styles.useInfoArea}>
-
-                <Text style={styles.useInfoTitle}>이용 상세 정보</Text>
+                <Text style={styles.useInfoTitle}>
+                    이용 상세 정보
+                </Text>
                 <InstructionList
                     title='상품 기본 정보'
                     lists={basicInformation}
