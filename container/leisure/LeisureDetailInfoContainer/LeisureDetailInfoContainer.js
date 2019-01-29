@@ -26,6 +26,7 @@ export default class LeisureDetailInfoContainer extends Component {
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.ScrollContainer}
                 >
+                    {/*뒤로가기 오버레이 컴포넌트*/}
                     <View style={styles.mainTitleArea}>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.goBack()}
@@ -34,6 +35,7 @@ export default class LeisureDetailInfoContainer extends Component {
                         </TouchableOpacity>
 
                     </View>
+                    {/*메인 이미지 컴포넌트*/}
                     <View style={styles.mainImgArea}>
                         <FlatList
                             data={LEISURE_DETAIL_MAIN_IMG_LIST}
@@ -47,6 +49,7 @@ export default class LeisureDetailInfoContainer extends Component {
                             }}
                         />
                     </View>
+                    {/*레저 정보 컴포넌트*/}
                     <View style={styles.leisureInfoArea}>
                         <Text style={styles.leisureTitle}>{LEISURE_DETAIL_INFO.title}</Text>
                         <Text style={styles.leisureDescription}>{LEISURE_DETAIL_INFO.description}</Text>
